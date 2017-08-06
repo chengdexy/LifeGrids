@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Index", "Regist", FormMethod.Post))
+        {
+            <input type="text" name="txtAccount" id="txtAccount" placeholder="Account" />
+            <input type="password" name="txtPassword" id="txtPassword" placeholder="Password" />
+            <input type="password" name="txtPassword_re" id="txtPassword_re" placeholder="Re-Password" />
+            <hr />
+            <input type="text" name="txtName" id="txtName" placeholder="Name" />
+            <input type="text" name="txtSex" id="txtSex" placeholder="Sex" />
+            <input type="text" name="txtBirthday" id="txtBirthday" placeholder="2017-08-06" />
+            <input type="text" name="txtHopeAge" id="txtHopeAge" placeholder="Hope Age" />
+            <hr />
+            <button type="submit" name="btnSubmit" id="btnSubmit">Regist</button>
+        }
+    </div>
+</body>
+</html>
