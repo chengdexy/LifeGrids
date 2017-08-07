@@ -29,5 +29,28 @@ namespace LifeGrids.ClassHelpers
                 throw new Exception($"Account {account} is not exist!");
             }
         }
+
+        public Grid GetGridByDate(DateTime date, Life life)
+        {
+            MainContext mc = _db;
+            int year = date.Year;
+            int month = date.Month;
+            int day = date.Day;
+            Grid resultGrid = life.Grids.Where(g => g.Year == year && g.Month == month && g.Day == day).FirstOrDefault();
+            if (resultGrid != null)
+            {
+                return resultGrid;
+            }
+            else
+            {
+                return new Grid
+                {
+                    Year = date.Year,
+                    Month = date.Month,
+                    Day = date.Day,
+                    Things = null
+                };
+            }
+        }
     }
 }

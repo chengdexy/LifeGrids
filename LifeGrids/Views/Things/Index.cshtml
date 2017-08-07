@@ -1,0 +1,39 @@
+﻿@model LifeGrids.ViewModels.GridViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <p>这一天是 @Model.thisDay.ToLongDateString()</p>
+        <p>第 @Model.yearCount 年</p>
+        <p>第 @Model.monthCount 个月</p>
+        <p>第 @Model.weekCount 周</p>
+        <p>第 @Model.dayCount  天</p>
+        <p>距离今天已经 @Model.fromToday 天</p>
+        <hr />
+        @if (Model.things == null)
+        {
+            <p>这天没有留下任何痕迹</p>
+            @Html.ActionLink("许个愿!", "AddNewThing", "Things", new {  date = Model.thisDay },null);
+        }
+        else
+        {
+            <p>这天包含 @Model.things.Count 个遗憾:</p>
+            for (int i = 0; i < Model.things.Count; i++)
+            {
+                <p>@Model.things[i].Hour : @Model.things[i].Minute : @Model.things[i].Second </p>
+                <p>@Model.things[i].Html</p>
+                <hr />
+            }
+        }
+    </div>
+</body>
+</html>

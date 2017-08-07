@@ -11,38 +11,33 @@ namespace LifeGrids.DAL
     {
         protected override void Seed(MainContext context)
         {
-            var Lifes = new List<Life>();
-            Life newLife = new Life();
-            newLife.Account = "chengdexy";
-            newLife.Password = "darkmoon1";
-            newLife.Name = "Xue Yuan";
-            newLife.Sex = "Man";
-            newLife.Brithday = new DateTime(1986, 2, 13);
-            newLife.HopeAge = 80;
-            int daysInLife = (newLife.Brithday.AddYears(80) - newLife.Brithday).Days;
-            Grid[] gridArray = new Grid[daysInLife];
-            for (int i = 0; i < daysInLife; i++)
+            var Lifes = new List<Life>
             {
-                DateTime date = newLife.Brithday.AddDays(i);
-                gridArray[i] = new Grid
-                {
-                    Year = date.Year,
-                    Month = date.Month,
-                    Day = date.Day,
-                    Things = new List<Thing>
-                    {
-                        new Thing
+                new Life{
+                    Account="chengdexy",
+                    Password="darkmoon1",
+                    Birthday=new DateTime(1986,2,13),
+                    Deathday=new DateTime(2066,2,13),
+                    Grids=new List<Grid>{
+                        new Grid
                         {
-                            Hour=0,
-                            Minute=0,
-                            Second=0,
-                            Html="hahahaha"
+                            Year=2017,
+                            Month=8,
+                            Day=7,
+                            Things=new List<Thing>
+                            {
+                                new Thing
+                                {
+                                    Hour=15,
+                                    Minute=0,
+                                    Second=0,
+                                    Html="This is Today."
+                                }
+                            }
                         }
                     }
-                };
-            }
-            newLife.Grids = gridArray.ToList<Grid>();
-            Lifes.Add(newLife);
+                }
+            };
             Lifes.ForEach(L => context.Lifes.Add(L));
             context.SaveChanges();
         }

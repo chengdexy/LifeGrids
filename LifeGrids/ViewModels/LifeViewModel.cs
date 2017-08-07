@@ -10,9 +10,7 @@ namespace LifeGrids.ViewModels
     {
         public int ID { get; set; }
         public string Account { get; set; }
-        public string Name { get; set; }
-        public string Sex { get; set; }
-        public DateTime Brithday { get; set; }
+        public DateTime Birthday { get; set; }
         public DateTime Deathday { get; set; }
         public int HopeAge { get; set; }
         public int DaysInLife { get; set; }
@@ -21,12 +19,10 @@ namespace LifeGrids.ViewModels
         {
             ID = life.ID;
             Account = life.Account;
-            Name = life.Name;
-            Sex = life.Sex;
-            HopeAge = life.HopeAge;
-            Brithday = life.Brithday;
-            Deathday = Brithday.AddYears(HopeAge).AddDays(1);
-            DaysInLife = (Deathday - Brithday).Days;
+            Birthday = life.Birthday;
+            Deathday = life.Deathday;
+            HopeAge = Deathday.Year - Birthday.Year;
+            DaysInLife = (Deathday - Birthday).Days;
         }
     }
 }

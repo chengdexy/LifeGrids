@@ -13,18 +13,16 @@
 </head>
 <body>
     <div>
-        <p>这是 @Model.ID - @Model.Name  的LifeGrids:</p>
-        <p>帐号: @Model.Account</p>
-        <p>性别: @Model.Sex</p>
-        <p>生于: @Model.Brithday</p>
+        <p>这是 @Model.ID - @Model.Account 的LifeGrids:</p>
+        <p>生于: @Model.Birthday.ToShortDateString()</p>
         <p>自认为可以活到 @Model.HopeAge  岁</p>
         <hr />
         <p>共有 @Model.DaysInLife 个生命格子</p>
         <hr />
         @for (int i = 0; i < Model.DaysInLife; i++)
         {
-            DateTime date = Model.Brithday.AddDays(i);
-            <p>@Html.ActionLink(date.ToString("yyyy-MM-dd"), "Index", "Things", new { ID = Model.ID }, new { @title = $"生命重的第{i+1}天" })</p>
+            DateTime date = Model.Birthday.AddDays(i);
+            <p>@Html.ActionLink(date.ToString("yyyy-MM-dd"), "Index", "Things", new { ID = i }, new { @title = $"生命中的第{i+1}天" })</p>
         }
 
     </div>

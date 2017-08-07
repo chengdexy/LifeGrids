@@ -44,10 +44,8 @@ namespace LifeGrids.Controllers
                 {
                     Account = account,
                     Password = password,
-                    Name = name,
-                    Sex = sex,
-                    Brithday = birthday,
-                    HopeAge = hopeAge
+                    Birthday = birthday,
+                    Deathday = birthday.AddYears(hopeAge)
                 };
                 db.Lifes.Add(life);
                 db.SaveChanges();

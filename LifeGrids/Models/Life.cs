@@ -10,10 +10,8 @@ namespace LifeGrids.Models
         public int ID { get; set; }
         public string Account { get; set; }
         public string Password { get; set; }
-        public string Name { get; set; }
-        public string Sex { get; set; }
-        public DateTime Brithday { get; set; }
-        public int HopeAge { get; set; }
+        public DateTime Birthday { get; set; }
+        public DateTime Deathday { get; set; }
         public virtual List<Grid> Grids { get; set; }
     }
 }
