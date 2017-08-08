@@ -28,10 +28,10 @@ namespace LifeGrids.DAL
                             {
                                 new Thing
                                 {
-                                    Hour=15,
-                                    Minute=0,
-                                    Second=0,
-                                    Html="This is Today."
+                                    CreateTime=new DateTime(2017,8,7,15,0,0),
+                                    Content="This is Today.",
+                                    State=Thing.ThingState.Doing,
+                                    StopTime=null
                                 }
                             }
                         }
