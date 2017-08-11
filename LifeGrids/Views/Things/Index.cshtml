@@ -19,17 +19,18 @@
         <p>第 @Model.dayCount  天</p>
         <p>距离今天已经 @Model.fromToday 天</p>
         <hr />
+        @Html.ActionLink("许个愿!", "AddNewThing", "Things", new { ID = Model.dayCount - 1, date = Model.thisDay }, null);
         @if (Model.things == null)
         {
             <p>这天没有留下任何痕迹</p>
-            @Html.ActionLink("许个愿!", "AddNewThing", "Things", new {  date = Model.thisDay },null);
         }
         else
         {
             <p>这天包含 @Model.things.Count 个遗憾:</p>
             for (int i = 0; i < Model.things.Count; i++)
             {
-                <p>@Model.things[i].CreateTime.Hour : @Model.things[i].CreateTime.Minute : @Model.things[i].CreateTime.Second </p>
+                @Html.ActionLink("删除", "DeleteThing", "Things", new { ID = Model.things[i].ID }, null)
+                <p>@Model.things[i].CreateTime.ToString("yyyy-MM-dd hh:mm:ss") </p>
                 <p>@Model.things[i].Content</p>
                 <hr />
             }

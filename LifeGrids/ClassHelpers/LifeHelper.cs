@@ -43,13 +43,14 @@ namespace LifeGrids.ClassHelpers
             }
             else
             {
-                return new Grid
+                Grid newGrid = new Grid
                 {
                     Year = date.Year,
                     Month = date.Month,
                     Day = date.Day,
                     Things = null
                 };
+                return newGrid;
             }
         }
     }

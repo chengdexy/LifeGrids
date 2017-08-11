@@ -125,6 +125,7 @@
     <Content Include="Views\Regist\Index.cshtml" />
     <Content Include="Views\Grids\Index.cshtml" />
     <Content Include="Views\Things\Index.cshtml" />
+    <Content Include="Views\Things\AddNewThing.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
